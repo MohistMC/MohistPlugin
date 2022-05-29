@@ -1,0 +1,5 @@
+name: MohistPlugin
+main: com.mohistmc.mohistplugin.Main
+version: 0.1
+author: MohistMC
+api-version: 1.16
