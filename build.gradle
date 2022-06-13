@@ -1,16 +1,8 @@
-buildscript {
-    repositories {
-        maven { url = 'https://s01.oss.sonatype.org/content/repositories/releases/' }
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'com.mohistmc', name: 'MohistGradle', version: '5.0.1', changing: true
-    }
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id 'maven-publish'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
-
 group 'com.mohistmc'
 version '1.16.5-0.1-SNAPSHOT'
 
@@ -20,18 +12,11 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "https://repo.extendedclip.com/content/repositories/placeholderapi/" }
+    maven { url "https://jitpack.io" }
     maven { url "https://s01.oss.sonatype.org/content/repositories/releases/" }
+    maven { url "https://maven.mohistmc.com/" }
 }
-
-minecraft {
-    mappings channel: 'official', version: '1.16.5'
-    // don't change here
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-}
-
 dependencies {
-    minecraft 'com.mohistmc:mohist:1.16.5-1008'
+    implementation 'com.mohistmc:mohistdev:1.16.5-0.1'
     implementation fileTree(dir: 'lib', include: ['*.jar'])
 }
-
-jar.finalizedBy('reobfJar')
