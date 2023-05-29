@@ -1,0 +1,27 @@
+# various other potential build files
+/build
+/.gradle
+/.vscode
+/classes
+/out
+/logs
+/libs
+
+# Mac filesystem dust
+.DS_Store
+
+# intellij
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# patch
+*.rej
+
+#eclipse
+**/bin
+**/.settings
+**/.classpath
+*.project
+/lib/
