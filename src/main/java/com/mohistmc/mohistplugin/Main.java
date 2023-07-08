@@ -19,22 +19,12 @@ public class Main extends JavaPlugin implements Listener {
         saveConfig();
         saveDefaultConfig();
         reloadConfig();
-        ServerAPI.registerBukkitEvents(this, this);
-        /*
-        if (ServerAPI.hasMod("pixelmon")) {
-            Bukkit.getLogger().info("Successful hook pixelmon mod!");
+        ServerAPI.putBukkitEvents(this, this);
+        if (ServerAPI.hasMod("mohist")) { // only 1.20.1 +
+            Bukkit.getLogger().info("Successful hook mohist mod!");
         }
-        */
     }
 
     public void onDisable() {
-    }
-
-    @EventHandler
-    public void onTest(final BukkitHookForgeEvent e) {
-        if (e.getEvent() instanceof ServerChatEvent) {
-            ServerChatEvent chatEvent = (ServerChatEvent) e.getEvent();
-            Bukkit.getLogger().info(chatEvent.getMessage());
-        }
     }
 }
