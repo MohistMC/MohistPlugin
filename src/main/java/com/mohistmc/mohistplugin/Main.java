@@ -1,10 +1,7 @@
 package com.mohistmc.mohistplugin;
 
 import com.mohistmc.api.ServerAPI;
-import com.mohistmc.api.event.BukkitHookForgeEvent;
-import net.minecraftforge.event.ServerChatEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,12 +16,17 @@ public class Main extends JavaPlugin implements Listener {
         saveConfig();
         saveDefaultConfig();
         reloadConfig();
-        ServerAPI.putBukkitEvents(this, this);
+        Bukkit.getPluginManager().registerEvents(this, this);
         if (ServerAPI.hasMod("mohist")) { // only 1.20.1 +
             Bukkit.getLogger().info("Successful hook mohist mod!");
         }
+
+        // registerForgeEvent(Pixelmon.EVENT_BUS, this);
+        // registerForgeEvent(this);
     }
 
+    @Override
     public void onDisable() {
+        // unregisterForgeEvents();
     }
 }
